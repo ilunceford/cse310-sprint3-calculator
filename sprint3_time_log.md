@@ -24,14 +24,14 @@ The expected minimum amount of time each Sprint for each category is as follows:
 
 ## Time Log
 
-|Date      |Start Time|Category|Description                                 |Total Minutes|
-|----------|----------|:------:|--------------------------------------------|:-----------:|
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
-|          |          |        |                                            |             |
+| Date    | Start Time | Category | Description                 | Total Minutes |
+|---------|------------|:--------:|-----------------------------|:-------------:|
+| 2/28/26 | 1:15 pm    |    IM    | Worked on setting up kotlin |       60       |
+|         |            |          |                             |               |
+|         |            |          |                             |               |
+|         |            |          |                             |               |
+|         |            |          |                             |               |
+|         |            |          |                             |               |
 
 _Note: Add more rows as needed._
 
