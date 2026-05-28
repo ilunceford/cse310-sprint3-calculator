@@ -7,6 +7,7 @@ import java.awt.Font
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
 import java.awt.GridLayout
+import java.awt.GraphicsEnvironment
 import javax.swing.BorderFactory
 import javax.swing.JButton
 import javax.swing.JFrame
@@ -694,7 +695,10 @@ fun format(value: Double): String {
         .trimEnd('.')
 }
 
-if (args.any { it == "--cli" }) {
+if (args.any { it == "--cli" } || GraphicsEnvironment.isHeadless()) {
+    if (GraphicsEnvironment.isHeadless()) {
+        println("No graphical display is available, so the calculator is starting in command-line mode.")
+    }
     CalculatorCli().start()
 } else {
     SwingUtilities.invokeLater {
