@@ -7,7 +7,6 @@ import java.awt.Font
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
 import java.awt.GridLayout
-import java.awt.GraphicsEnvironment
 import javax.swing.BorderFactory
 import javax.swing.JButton
 import javax.swing.JFrame
@@ -695,13 +694,17 @@ fun format(value: Double): String {
         .trimEnd('.')
 }
 
-if (args.any { it == "--cli" } || GraphicsEnvironment.isHeadless()) {
-    if (GraphicsEnvironment.isHeadless()) {
-        println("No graphical display is available, so the calculator is starting in command-line mode.")
-    }
+if (args.any { it == "--cli" }) {
     CalculatorCli().start()
 } else {
+    System.setProperty("java.awt.headless", "false")
     SwingUtilities.invokeLater {
-        CalculatorFrame().isVisible = true
+        try {
+            CalculatorFrame().isVisible = true
+        } catch (error: Throwable) {
+            println("Could not open the graphical calculator window.")
+            println("Run from a normal Windows desktop terminal, not WSL, SSH, Docker, or a headless server.")
+            println("Error: ${error.message}")
+        }
     }
 }
